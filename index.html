@@ -92,10 +92,10 @@
    DBs/Services/Apps · Sec/Mon · STORaaS/BKaaS · Internal systems · Core (repo & storage) · Core (general) · FLB/Share */
 const PRODUCT = "Core (general)";
 
-const WEEKS = ["W27", "W28", "W29", "W30"];
+const WEEKS = ["W28", "W29", "W30", "W31"];
 const COLORS = {Open:"#d6443c",Resolved:"#e0a106",Closed:"#1f9d57"};
-const bugStageReleased = {"Open": [162, 164, 145, 47], "Resolved": [95, 86, 100, 125], "Closed": [773, 798, 809, 831]};
-const bugStageFeature  = {"Open": [389, 376, 348, 333], "Resolved": [266, 266, 302, 373], "Closed": [274, 285, 291, 318]};
+const bugStageReleased = {"Open": [164, 145, 47, 32], "Resolved": [86, 100, 125, 151], "Closed": [798, 809, 831, 838]};
+const bugStageFeature  = {"Open": [376, 348, 333, 297], "Resolved": [266, 302, 373, 400], "Closed": [285, 291, 318, 344]};
 
 /* Priority: P1 = blocks users / some test cases · P2 = critical · P3 = mostly UI */
 const PRIO = { P1:{label:"Blocks users",rank:1}, P2:{label:"Critical",rank:2}, P3:{label:"Mostly UI",rank:3}, P4:{label:"Minor",rank:4}, P5:{label:"Trivial",rank:5} };
@@ -104,44 +104,56 @@ const PRIO = { P1:{label:"Blocks users",rank:1}, P2:{label:"Critical",rank:2}, P
    [key, summary, priority, type(regression|feature), status, ageDays, linkedSupportTickets, weight, severity, assignee] */
 const BUGS = [
   [
-    "NJM-186512",
-    "[Core general PT Regression] Test Connection Button Label Is Missing After Database Validation Fails",
+    "NJM-187352",
+    "[FNB: change RP retention via API {#415648}] - i receive the failure for all points in case i try to apply Keep forever to the points w/ a corrupted one among them",
     "P2",
-    "feature",
-    "Open",
-    2,
-    1,
-    100,
-    "P2",
-    "Tin Duong"
-  ],
-  [
-    "NJM-186504",
-    "[Core general PT Regression] Real-time replication fails on vCenter 9.1: unexpected PBM element {urn:pbm}k8sCompliantName (storage-policy parsing)",
-    "P1",
-    "feature",
-    "Open",
-    2,
-    1,
-    100,
-    "P1",
-    "Diet Nguyen"
-  ],
-  [
-    "NJM-186499",
-    "[11.3] Site Recovery Job report: alarm notification shows raw \"itemlink\" object literal instead of the rendered job name/link",
-    "P3",
     "regression",
     "Open",
     2,
-    1,
+    2,
     100,
-    "P3",
-    "Tin Duong"
+    "P2",
+    "Roman Kiiashko"
   ],
   [
-    "NJM-186483",
-    "[Core general PT Regression] Software Update: license tooltip text does not match spec (\"functionality\" vs \"feature\" + extra sentence)",
+    "NJM-187329",
+    "[Core General PT Regression] Linux installer exits 0 and leaves a partial extraction after checksum-verification failure",
+    "P3",
+    "feature",
+    "Open",
+    2,
+    2,
+    100,
+    "P3",
+    "Vo Van Hiep"
+  ],
+  [
+    "NJM-187326",
+    "[Core General PT Regression] Linux silent installer: relative -i/-c path rejected with no error message and leaves a partial install",
+    "P3",
+    "feature",
+    "Open",
+    2,
+    2,
+    100,
+    "P3",
+    "Dung Nguyen"
+  ],
+  [
+    "NJM-187319",
+    "[Core General PT Regression] Rocky Linux 9.7 - installer fails silently on minimal Rocky Linux 9.7 - 'tar' invoked with no prerequisite check (line 443)",
+    "P3",
+    "feature",
+    "Open",
+    2,
+    2,
+    100,
+    "P3",
+    "Dung Nguyen"
+  ],
+  [
+    "NJM-187259",
+    "[Core general PT Regression][Installer][Silent] Disk-full abort during silent install prints NO console error (message only in log); inconsistent with interactive mode",
     "P3",
     "feature",
     "Open",
@@ -149,7 +161,79 @@ const BUGS = [
     1,
     100,
     "P3",
+    "Vo Van Hiep"
+  ],
+  [
+    "NJM-187232",
+    "[Core general PT Regression] NullPointerException in accountBackupObject leaves backup savepoint permanently UNCOMMITTED when PostgreSQL HA switchover occurs mid-job",
+    "P3",
+    "feature",
+    "Open",
+    3,
+    2,
+    100,
+    "P2",
+    "Dung Nguyen"
+  ],
+  [
+    "NJM-187128",
+    "[Core General PT Regression] [PAU] 3-year lifecycle gate not enforced: 10.7.0 (2 Sep 2022, >3yr old) allowed to auto-update instead of \"Update cannot be started\" prohibition",
+    "P2",
+    "feature",
+    "Open",
+    3,
+    1,
+    100,
+    "P3",
     "Tin Duong"
+  ],
+  [
+    "NJM-187077",
+    "[Core general PT Regression] Global Search results are not refreshed automatically after matching backups are added or deleted",
+    "P2",
+    "feature",
+    "Reopened",
+    3,
+    1,
+    100,
+    "P2",
+    "Kieu Pham"
+  ],
+  [
+    "NJM-186933",
+    "[11.2.1] Email settings - Microsoft 365 OAuth 2.0 test email fails with “Insufficient privileges” after required permission is granted",
+    "P2",
+    "regression",
+    "Reopened",
+    4,
+    1,
+    100,
+    "P1",
+    "Griffin Tran"
+  ],
+  [
+    "NJM-186844",
+    "[11.3][UI] Missing group icon in OLR wizard",
+    "P3",
+    "regression",
+    "Open",
+    5,
+    0,
+    100,
+    "P3",
+    "Danh Truong"
+  ],
+  [
+    "NJM-186843",
+    "[11.3][UI] Inventory - Can not scroll to view all items in Inventory",
+    "P3",
+    "regression",
+    "Open",
+    5,
+    0,
+    100,
+    "P3",
+    "Danh Truong"
   ],
   [
     "NJM-186478",
@@ -157,71 +241,23 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2,
+    9,
     1,
     100,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-186463",
-    "[Core general PT Regression] Auto Update option is no longer shown on the UI after switching to a BETA license",
-    "P3",
-    "feature",
-    "Open",
-    2,
-    2,
-    100,
-    "P3",
-    "Tin Duong"
-  ],
-  [
-    "NJM-186457",
-    "[Core general PT Regression] Debug logging setting is not persisted after editing an Installed Service Transporter",
-    "P2",
-    "feature",
-    "Open",
-    2,
-    1,
-    100,
-    "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-186438",
     "[11.3] Silent-mode update reverts NBR UI language from the user-selected English back to the OS locale (Italian)",
     "P2",
     "regression",
-    "Open",
-    2,
+    "Reopened",
+    9,
     1,
     100,
     "P3",
-    "Tin Duong"
-  ],
-  [
-    "NJM-186389",
-    "[11.2.1] Backup copy: target-busy failure is mis-reported as \"Connection to the transporter has been lost\" alarm",
-    "P2",
-    "regression",
-    "Open",
-    2,
-    1,
-    100,
-    "P2",
-    "Tin Duong"
-  ],
-  [
-    "NJM-186253",
-    "[Core general PT Regression] PAU 10-minute update warning dialog: header has extra word \"The\" and missing the \"Cancel Update\" button",
-    "P3",
-    "feature",
-    "Open",
-    3,
-    2,
-    100,
-    "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-186250",
@@ -229,71 +265,23 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    3,
+    10,
     2,
     100,
     "P3",
     "Kieu Pham"
   ],
   [
-    "NJM-186246",
-    "[Core general PT Regression] PAU \"Cancel product update?\" dialog: confirm button labeled \"Cancel Download\" instead of \"Cancel Update\"",
-    "P2",
-    "feature",
-    "Reopened",
-    3,
+    "NJM-185211",
+    "[RTR-Regression]  Incorrect notification text in Site Recovery skip notification (sr20)",
+    "P3",
+    "regression",
+    "Open",
+    19,
     2,
-    100,
+    59,
     "P3",
-    "Tin Duong"
-  ],
-  [
-    "NJM-186226",
-    "[Core general PT regression] Tooltip icon overlaps \"Remove physical machine agent(s)\" label on uninstall confirmation screen",
-    "P3",
-    "feature",
-    "Open",
-    3,
-    1,
-    100,
-    "P3",
-    "Vo Van Hiep"
-  ],
-  [
-    "NJM-186127",
-    "[Q3 2026] When I try to run the report for a date range, it only seems to give me the last date in the range {415373}",
-    "P2",
-    "regression",
-    "Open",
-    4,
-    1,
-    65,
-    "P2",
-    "Tin Duong"
-  ],
-  [
-    "NJM-186122",
-    "[11.3] CIFS file share cannot be added when using a non-onboard Transporter, although the same credentials work with the onboard Transporter",
-    "P2",
-    "regression",
-    "Open",
-    4,
-    1,
-    80,
-    "P2",
-    "Tin Duong"
-  ],
-  [
-    "NJM-185212",
-    "[11.3] Incorrect translation for “Dismiss” button in update notification banner",
-    "P2",
-    "regression",
-    "Reopened",
-    12,
-    1,
-    100,
-    "P2",
-    "Shivan Tran"
+    "Kieu Pham"
   ],
   [
     "NJM-184840",
@@ -301,7 +289,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    16,
+    23,
     1,
     48,
     "P3",
@@ -312,24 +300,12 @@ const BUGS = [
     "[FNB][Repository refresh] Send job report failure shows no error/alarm in Errors tab",
     "P3",
     "feature",
-    "Reopened",
-    16,
+    "Open",
+    23,
     2,
     79,
     "P3",
-    "Khiem Cao"
-  ],
-  [
-    "NJM-184696",
-    "[11.2.1][Users & Roles][AD Groups] AD group sync silently capped at 5000/domain - groups beyond 5000 (incl. newly-created) never synchronized, unfindable even via Search",
-    "P3",
-    "feature",
-    "Open",
-    17,
-    1,
-    51,
-    "P2",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-184108",
@@ -337,7 +313,7 @@ const BUGS = [
     "P2",
     "regression",
     "Open",
-    23,
+    30,
     2,
     75,
     "P2",
@@ -349,23 +325,11 @@ const BUGS = [
     "P3",
     "regression",
     "Open",
-    26,
+    33,
     1,
     89,
     "P3",
-    "Vo Van Hiep"
-  ],
-  [
-    "NJM-183423",
-    "[ 11.3] Japanese UI: Build date in About dialog/Calendar is not localized correctly",
-    "P3",
-    "regression",
-    "Reopened",
-    27,
-    3,
-    98,
-    "P3",
-    "Vo Van Hiep"
+    "Kieu Pham"
   ],
   [
     "NJM-183136",
@@ -373,7 +337,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    31,
+    38,
     1,
     21,
     "P3",
@@ -385,7 +349,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    31,
+    38,
     1,
     21,
     "P3",
@@ -397,7 +361,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    32,
+    39,
     1,
     94,
     "P3",
@@ -409,23 +373,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    38,
+    45,
     0,
     60,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-178489",
-    "System Settings > General tab: \"Auto retry failed jobs X times\" accepts value over the maximum (10) and applies it successfully",
-    "P3",
-    "feature",
-    "Open",
-    45,
-    0,
-    21,
-    "P3",
-    "Khiem Cao"
+    "Griffin Tran"
   ],
   [
     "NJM-178434",
@@ -433,11 +385,11 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    45,
+    52,
     1,
     81,
     "P2",
-    "Kieu Pham"
+    "Griffin Tran"
   ],
   [
     "NJM-175876",
@@ -445,23 +397,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    58,
+    65,
     1,
     74,
     "P3",
     "Alan Tran"
-  ],
-  [
-    "NJM-175852",
-    "[11.2.0] Source object name is not updated in Backup Copy wizard after renaming a machine during a multi-source backup",
-    "P3",
-    "regression",
-    "Reopened",
-    58,
-    2,
-    96,
-    "P2",
-    "Vo Van Hiep"
   ],
   [
     "NJM-175276",
@@ -469,35 +409,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    59,
+    66,
     0,
     30,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-174794",
-    "[11.2][Localization] Alarm is not fully translated in case import fails",
-    "P3",
-    "feature",
-    "Open",
-    60,
-    1,
-    30,
-    "P3",
-    "Vo Van Hiep"
-  ],
-  [
-    "NJM-172780",
-    "[11.3] It is possible to select protection date for RP that is in immutable period",
-    "P3",
-    "regression",
-    "Open",
-    68,
-    1,
-    89,
-    "P3",
-    "Vo Van Hiep"
+    "Griffin Tran"
   ],
   [
     "NJM-172645",
@@ -505,7 +421,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    69,
+    76,
     1,
     30,
     "P3",
@@ -517,7 +433,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    73,
+    80,
     6,
     74,
     "P3",
@@ -529,23 +445,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    74,
+    81,
     0,
     60,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-171390",
-    "[11.3][Director task limit reached] [Job overview/Group overview] Director task limit reached notification is not shown under Events list",
-    "P3",
-    "regression",
-    "Open",
-    74,
-    4,
-    97,
-    "P3",
-    "Vo Van Hiep"
+    "Griffin Tran"
   ],
   [
     "NJM-171134",
@@ -553,7 +457,7 @@ const BUGS = [
     "P2",
     "feature",
     "Open",
-    76,
+    83,
     1,
     31,
     "P3",
@@ -565,11 +469,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    76,
+    83,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-170814",
@@ -577,11 +481,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    79,
+    86,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-170367",
@@ -589,23 +493,11 @@ const BUGS = [
     "P2",
     "feature",
     "Reopened",
-    81,
+    88,
     2,
     80,
     "P3",
-    "Nail Abdalla"
-  ],
-  [
-    "NJM-169919",
-    "[Facelift v6.2.1][Backup/copy/replication][Step 2 Destination] Some inconsistent text in these flows",
-    "P3",
-    "feature",
-    "Reopened",
-    82,
-    1,
-    74,
-    "P3",
-    "Vu Luu"
+    "Oleksii Osypov"
   ],
   [
     "NJM-169534",
@@ -613,7 +505,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    89,
+    96,
     2,
     60,
     "P3",
@@ -625,11 +517,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    89,
+    96,
     1,
     51,
     "P2",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-169430",
@@ -637,23 +529,23 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    93,
+    100,
     0,
     60,
     "P4",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-169242",
     "[11.3][Out of date transporter without master password] Status tag changes from Out of Date to Inaccessible unexpectedly after refreshing",
     "P3",
     "regression",
-    "Open",
-    94,
+    "Reopened",
+    101,
     0,
     84,
     "P3",
-    "Vo Van Hiep"
+    "Griffin Tran"
   ],
   [
     "NJM-168965",
@@ -661,23 +553,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    115,
+    122,
     1,
     21,
     "P3",
     "Le Hoang Tuan Minh"
-  ],
-  [
-    "NJM-168837",
-    "[Facelift v6.2.1] Schedule name overlaps the Edit button when too long for Backup Job in SRF mode",
-    "P3",
-    "feature",
-    "Reopened",
-    100,
-    1,
-    74,
-    "P3",
-    "Vu Luu"
   ],
   [
     "NJM-168805",
@@ -685,11 +565,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    101,
+    108,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-168781",
@@ -697,11 +577,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    101,
+    108,
     0,
     60,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-168777",
@@ -709,7 +589,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    101,
+    108,
     3,
     74,
     "P3",
@@ -721,11 +601,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    101,
+    108,
     3,
     84,
     "P3",
-    "Kieu Pham"
+    "Vu Luu"
   ],
   [
     "NJM-168627",
@@ -733,11 +613,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    102,
+    109,
     1,
     60,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-168562",
@@ -745,7 +625,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    102,
+    109,
     2,
     60,
     "P3",
@@ -757,11 +637,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    102,
+    109,
     11,
     79,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-168547",
@@ -769,11 +649,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    102,
+    109,
     12,
     79,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-168545",
@@ -781,11 +661,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    102,
+    109,
     11,
     79,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-168542",
@@ -793,11 +673,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    102,
+    109,
     12,
     79,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-168538",
@@ -805,35 +685,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    102,
+    109,
     11,
     80,
     "P4",
-    "Andy Du"
-  ],
-  [
-    "NJM-168503",
-    "Joex11 - Proxmox recovery job - Transporter is already inaccessible but job still refresh repository in job run and display error2",
-    "P3",
-    "feature",
-    "Reopened",
-    103,
-    2,
-    79,
-    "P3",
-    "Khiem Cao"
-  ],
-  [
-    "NJM-168488",
-    "[11.3.0] Resource Locking - Backup object - <job name> run is shared lock so other shared lock actions should be enabled",
-    "P3",
-    "feature",
-    "Reopened",
-    103,
-    2,
-    79,
-    "P3",
-    "Khiem Cao"
+    "Griffin Tran"
   ],
   [
     "NJM-168470",
@@ -841,11 +697,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    103,
+    110,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-167876",
@@ -853,35 +709,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    110,
+    117,
     1,
     48,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-167788",
-    "[11.2.1][QNAP] The digital signature has expired for NAKIVO",
-    "P1",
-    "feature",
-    "Reopened",
-    111,
-    5,
-    60,
-    "P2",
-    "Shivan Tran"
-  ],
-  [
-    "NJM-166001",
-    "[11.3][Users and Roles] Recover operator/View roles: No option is selected by default for \"Certificates management\"",
-    "P3",
-    "regression",
-    "Reopened",
-    129,
-    0,
-    92,
-    "P3",
-    "Vo Van Hiep"
+    "Griffin Tran"
   ],
   [
     "NJM-165642",
@@ -889,7 +721,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    131,
+    138,
     0,
     21,
     "P3",
@@ -901,7 +733,7 @@ const BUGS = [
     "P2",
     "feature",
     "Open",
-    137,
+    144,
     0,
     21,
     "P3",
@@ -913,7 +745,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    167,
+    174,
     0,
     21,
     "P2",
@@ -925,11 +757,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    171,
+    178,
     2,
     74,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-162723",
@@ -937,11 +769,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    171,
+    178,
     1,
     60,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-162497",
@@ -949,23 +781,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    174,
+    181,
     0,
     21,
     "P3",
     "Nghiem Luu"
-  ],
-  [
-    "NJM-159179",
-    "[11.2] No warning message displayed in case updating standalone transporter",
-    "P3",
-    "feature",
-    "Reopened",
-    201,
-    1,
-    60,
-    "P3",
-    "Vo Van Hiep"
   ],
   [
     "NJM-158991",
@@ -973,11 +793,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    207,
+    214,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-157815",
@@ -985,11 +805,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    219,
+    226,
     0,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-155289",
@@ -997,11 +817,23 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    240,
+    247,
     1,
     60,
     "P3",
-    "Khiem Cao"
+    "Griffin Tran"
+  ],
+  [
+    "NJM-152890",
+    "Email settings. Support OAuth 2.0  >> Instructions for Microsoft 365 OAuth 2.0 authentication",
+    "P2",
+    "feature",
+    "Reopened",
+    271,
+    6,
+    100,
+    "P2",
+    "Shivan Tran"
   ],
   [
     "NJM-149773",
@@ -1009,35 +841,11 @@ const BUGS = [
     "P2",
     "feature",
     "Reopened",
-    276,
+    283,
     1,
     31,
     "P2",
     "Dung Nguyen"
-  ],
-  [
-    "NJM-148142",
-    "[Q4-2025][AU][Asustor] Not show an error pop-up incase update from Beta to Ga",
-    "P3",
-    "feature",
-    "Open",
-    291,
-    3,
-    60,
-    "P3",
-    "Vo Van Hiep"
-  ],
-  [
-    "NJM-147537",
-    "[Localization] MSPC-M-2: Step 1 display BrandingServiceException when switching between different languages",
-    "P3",
-    "feature",
-    "Reopened",
-    300,
-    1,
-    60,
-    "P3",
-    "Vo Van Hiep"
   ],
   [
     "NJM-146492",
@@ -1045,11 +853,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    311,
+    318,
     3,
     74,
     "P3",
-    "Tin Duong"
+    "Khiem Cao"
   ],
   [
     "NJM-146450",
@@ -1057,11 +865,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    311,
+    318,
     0,
     21,
     "P2",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-146172",
@@ -1069,11 +877,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    317,
+    324,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-145223",
@@ -1081,23 +889,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    331,
+    338,
     2,
     79,
     "P3",
-    "Kieu Pham"
-  ],
-  [
-    "NJM-144355",
-    "[Backup encryption] User cannot select the FI repository for backup job with \"Backup encryption\" DISABLED if the other backup job have \"Backup encryption\" ENABLED",
-    "P2",
-    "feature",
-    "Reopened",
-    340,
-    1,
-    31,
-    "P2",
-    "Khiem Cao"
+    "Griffin Tran"
   ],
   [
     "NJM-142577",
@@ -1105,11 +901,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    355,
+    362,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-142360",
@@ -1117,11 +913,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    358,
+    365,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-142024",
@@ -1129,11 +925,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    364,
+    371,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-141996",
@@ -1141,7 +937,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    366,
+    373,
     3,
     74,
     "P3",
@@ -1153,11 +949,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    366,
+    373,
     1,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-141934",
@@ -1165,11 +961,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    367,
+    374,
     1,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-141886",
@@ -1177,11 +973,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    368,
+    375,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-141865",
@@ -1189,11 +985,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    368,
+    375,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-141388",
@@ -1201,11 +997,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    377,
+    384,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-140489",
@@ -1213,11 +1009,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    390,
+    397,
     3,
     74,
     "P2",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-140024",
@@ -1225,35 +1021,23 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    394,
+    401,
     1,
     60,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
-    "NJM-139920",
-    "[Proxmox v2.1] Fencing - ict8 should be displayed in case Protected Source Container is moved to another protected Source Container",
-    "P3",
-    "regression",
-    "Open",
-    396,
-    2,
-    94,
-    "P3",
-    "Tin Duong"
-  ],
-  [
-    "NJM-139831",
-    "[11.1][Return NBR usage data v2] Backup job > Information per job > Retention approach > Legacy: Keep X last RPs is incorrectly displayed in the metadata usage file",
+    "NJM-139883",
+    "[Facelift v6.2.1] Bootable Media step 1 the Note content position is wrong compare to spec",
     "P3",
     "feature",
     "Reopened",
-    396,
+    403,
     1,
-    60,
+    100,
     "P3",
-    "Khiem Cao"
+    "Griffin Tran"
   ],
   [
     "NJM-139499",
@@ -1261,11 +1045,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    398,
+    405,
     0,
     21,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-139218",
@@ -1273,11 +1057,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    401,
+    408,
     0,
     21,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-138487",
@@ -1285,11 +1069,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    403,
+    410,
     1,
     60,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-136779",
@@ -1297,11 +1081,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    416,
+    423,
     0,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-136272",
@@ -1309,11 +1093,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    428,
+    435,
     1,
     60,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-136194",
@@ -1321,11 +1105,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    430,
+    437,
     1,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-135994",
@@ -1333,7 +1117,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    433,
+    440,
     2,
     48,
     "P3",
@@ -1345,23 +1129,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    433,
+    440,
     2,
     48,
     "P3",
     "Khiem Cao"
-  ],
-  [
-    "NJM-135468",
-    "[11.1] mt905 error message is not displayed when user starts backup job and the vCenter is inaccessible",
-    "P3",
-    "feature",
-    "Reopened",
-    439,
-    2,
-    79,
-    "P3",
-    "Tin Duong"
   ],
   [
     "NJM-135336",
@@ -1369,7 +1141,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    440,
+    447,
     6,
     60,
     "P3",
@@ -1381,7 +1153,7 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    445,
+    452,
     5,
     74,
     "P2",
@@ -1393,11 +1165,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    445,
+    452,
     1,
     60,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-134214",
@@ -1405,11 +1177,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    454,
+    461,
     0,
     51,
     "P2",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-133844",
@@ -1417,11 +1189,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    459,
+    466,
     0,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-133807",
@@ -1429,19 +1201,19 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    459,
+    466,
     0,
     21,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-133737",
     "[PAv2] FLR activity is failed in case update vmagent during FLR progress",
     "P3",
     "feature",
-    "Open",
-    460,
+    "Reopened",
+    467,
     1,
     30,
     "P3",
@@ -1453,11 +1225,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    461,
+    468,
     1,
     74,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-133396",
@@ -1465,23 +1237,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    466,
+    473,
     1,
     60,
     "P1",
-    "Andy Du"
-  ],
-  [
-    "NJM-133055",
-    "[Edit master password] Add/Edit Nodes wizard - Sercurity: Tooltip on info icon of master password is not displayed correctly",
-    "P3",
-    "feature",
-    "Open",
-    473,
-    1,
-    30,
-    "P3",
-    "Khiem Cao"
+    "Griffin Tran"
   ],
   [
     "NJM-131597",
@@ -1489,11 +1249,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    495,
+    502,
     0,
     21,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-131272",
@@ -1501,23 +1261,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    501,
+    508,
     0,
     21,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-130896",
-    "[Permanent agent v2] VM agent version is not updated on Control panel",
-    "P3",
-    "feature",
-    "Open",
-    507,
-    1,
-    30,
-    "P3",
-    "Vo Van Hiep"
+    "Griffin Tran"
   ],
   [
     "NJM-130872",
@@ -1525,11 +1273,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    508,
+    515,
     1,
     30,
     "P3",
-    "Vo Van Hiep"
+    "Griffin Tran"
   ],
   [
     "NJM-130795",
@@ -1537,11 +1285,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    509,
+    516,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-130789",
@@ -1549,11 +1297,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    509,
+    516,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-130787",
@@ -1561,23 +1309,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    509,
+    516,
     1,
     30,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-130781",
-    "[Permanent Agent v2][Spec issue] VM agents will be updated no matter what. Also, there's no backward compatible Reliability spec link",
-    "P3",
-    "feature",
-    "Reopened",
-    509,
-    1,
-    60,
-    "P3",
-    "Vo Van Hiep"
+    "Griffin Tran"
   ],
   [
     "NJM-130059",
@@ -1585,11 +1321,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    522,
+    529,
     0,
     21,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-129935",
@@ -1597,11 +1333,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    524,
+    531,
     0,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-129803",
@@ -1609,11 +1345,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    528,
+    535,
     0,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-129282",
@@ -1621,7 +1357,7 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    535,
+    542,
     1,
     60,
     "P3",
@@ -1633,11 +1369,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    535,
+    542,
     0,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-128411",
@@ -1645,11 +1381,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    559,
+    566,
     0,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-128226",
@@ -1657,11 +1393,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    562,
+    569,
     0,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-127894",
@@ -1669,11 +1405,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    564,
+    571,
     0,
     21,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-127870",
@@ -1681,23 +1417,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    564,
+    571,
     0,
     48,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-127523",
-    "[11.0.1] Plural of items in Content of activities is incorrect",
-    "P3",
-    "regression",
-    "Open",
-    566,
-    0,
-    84,
-    "P3",
-    "Vo Van Hiep"
+    "Griffin Tran"
   ],
   [
     "NJM-126253",
@@ -1705,35 +1429,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    592,
+    599,
     7,
     79,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-126216",
-    "[Localization v3] French - Job history report - Column's name is dropped into new line",
-    "P3",
-    "feature",
-    "Reopened",
-    593,
-    1,
-    60,
-    "P3",
-    "Vo Van Hiep"
-  ],
-  [
-    "NJM-126059",
-    "[11.0.1][Localization v3][UI] Recovery M365 - User Mail - Option: Text and dropdown are overlapped after language changed to Deutsch",
-    "P3",
-    "feature",
-    "Reopened",
-    594,
-    1,
-    74,
-    "P3",
-    "Kieu Pham"
+    "Griffin Tran"
   ],
   [
     "NJM-125972",
@@ -1741,7 +1441,7 @@ const BUGS = [
     "P3",
     "regression",
     "Open",
-    597,
+    604,
     1,
     81,
     "P2",
@@ -1753,11 +1453,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    599,
+    606,
     0,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-125718",
@@ -1765,11 +1465,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    600,
+    607,
     0,
     21,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-125201",
@@ -1777,11 +1477,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    605,
+    612,
     1,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-124920",
@@ -1789,7 +1489,7 @@ const BUGS = [
     "P3",
     "regression",
     "Open",
-    607,
+    614,
     0,
     84,
     "P3",
@@ -1801,11 +1501,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    613,
+    620,
     1,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-124045",
@@ -1813,11 +1513,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    614,
+    621,
     0,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-124000",
@@ -1825,11 +1525,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    614,
+    621,
     1,
     60,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-123645",
@@ -1837,11 +1537,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    619,
+    626,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-123639",
@@ -1849,7 +1549,7 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    619,
+    626,
     2,
     74,
     "P3",
@@ -1861,11 +1561,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    619,
+    626,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-123494",
@@ -1873,23 +1573,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    620,
+    627,
     0,
     48,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-123304",
-    "Edit master password - Tooltip is not displayed correctly",
-    "P3",
-    "feature",
-    "Open",
-    621,
-    2,
-    48,
-    "P3",
-    "Khiem Cao"
+    "Griffin Tran"
   ],
   [
     "NJM-123184",
@@ -1897,11 +1585,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    622,
+    629,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-122933",
@@ -1909,11 +1597,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    625,
+    632,
     0,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-122930",
@@ -1921,11 +1609,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    625,
+    632,
     0,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-122592",
@@ -1933,11 +1621,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    627,
+    634,
     1,
     74,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-122236",
@@ -1945,11 +1633,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    628,
+    635,
     0,
     21,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-122123",
@@ -1957,11 +1645,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    629,
+    636,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-121921",
@@ -1969,11 +1657,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    634,
+    641,
     0,
     21,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-121882",
@@ -1981,11 +1669,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    634,
+    641,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-121301",
@@ -1993,11 +1681,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    636,
+    643,
     0,
     21,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-121202",
@@ -2005,11 +1693,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    639,
+    646,
     0,
     21,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-120946",
@@ -2017,11 +1705,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    640,
+    647,
     0,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-120368",
@@ -2029,7 +1717,7 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    646,
+    653,
     3,
     84,
     "P3",
@@ -2041,23 +1729,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    647,
+    654,
     1,
     60,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-120022",
-    "[Branch edit master password] Can go to \"Manage credentials\" although click on a disabled link",
-    "P3",
-    "feature",
-    "Open",
-    653,
-    1,
-    30,
-    "P3",
-    "Khiem Cao"
+    "Griffin Tran"
   ],
   [
     "NJM-119555",
@@ -2065,23 +1741,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    657,
+    664,
     1,
     60,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-119547",
-    "[AU][11.0][UI][Options][Spec]The text tooltip 'Change tracking'[CBT settings popup] for VMware does not match the spec.",
-    "P3",
-    "feature",
-    "Open",
-    657,
-    1,
-    48,
-    "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-119523",
@@ -2089,11 +1753,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    657,
+    664,
     0,
     21,
     "P2",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-119492",
@@ -2101,23 +1765,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    660,
+    667,
     2,
     79,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-119444",
-    "[11.0][Report] Job history report, Boot/Screenshot verification shows incorrectly",
-    "P3",
-    "feature",
-    "Open",
-    660,
-    2,
-    48,
-    "P3",
-    "Vo Van Hiep"
+    "Griffin Tran"
   ],
   [
     "NJM-119254",
@@ -2125,7 +1777,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    662,
+    669,
     0,
     21,
     "P3",
@@ -2137,11 +1789,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    662,
+    669,
     0,
     21,
     "P2",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-119235",
@@ -2149,11 +1801,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    662,
+    669,
     1,
     60,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-117974",
@@ -2161,23 +1813,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    670,
+    677,
     1,
     60,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-117312",
-    "[AU][11.0][UI] Wrong text in option rename Replica VM name",
-    "P3",
-    "feature",
-    "Reopened",
-    675,
-    2,
-    79,
-    "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-117225",
@@ -2185,11 +1825,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    676,
+    683,
     1,
     60,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-117201",
@@ -2197,11 +1837,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    677,
+    684,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-116807",
@@ -2209,23 +1849,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    682,
+    689,
     1,
     30,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-116718",
-    "[11][PA][FLR] - Warning PA outdate message is using IP instead VM name",
-    "P3",
-    "feature",
-    "Open",
-    683,
-    1,
-    30,
-    "P3",
-    "Khiem Cao"
+    "Griffin Tran"
   ],
   [
     "NJM-115450",
@@ -2233,11 +1861,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    697,
+    704,
     0,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-115134",
@@ -2245,23 +1873,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    704,
+    711,
     0,
     51,
     "P2",
-    "Andy Du"
-  ],
-  [
-    "NJM-114301",
-    "[11.0][Migration] - PPD-1 dialog does not match to spec",
-    "P3",
-    "feature",
-    "Open",
-    716,
-    1,
-    30,
-    "P3",
-    "Khiem Cao"
+    "Griffin Tran"
   ],
   [
     "NJM-114096",
@@ -2269,7 +1885,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    718,
+    725,
     3,
     60,
     "P3",
@@ -2281,23 +1897,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    723,
+    730,
     0,
     48,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-113661",
-    "[11.0][Backup encryption] Reverse connection - Hyper-v recovery job - Missing alarm becr005 in case job failed with option \"allow sending ...\" disabled",
-    "P3",
-    "feature",
-    "Open",
-    724,
-    0,
-    21,
-    "P3",
-    "Vo Van Hiep"
+    "Griffin Tran"
   ],
   [
     "NJM-113461",
@@ -2305,23 +1909,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    727,
+    734,
     1,
     60,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-113456",
-    "[11.0]Resource locking - The Edit option in parent or Full recovery point does not locked when RP in the shared lock",
-    "P3",
-    "feature",
-    "Reopened",
-    727,
-    4,
-    79,
-    "P3",
-    "Khiem Cao"
+    "Griffin Tran"
   ],
   [
     "NJM-112687",
@@ -2329,11 +1921,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    738,
+    745,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-112675",
@@ -2341,11 +1933,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    739,
+    746,
     0,
     21,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-112092",
@@ -2353,11 +1945,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    746,
+    753,
     0,
     21,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-112091",
@@ -2365,11 +1957,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    746,
+    753,
     0,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-111823",
@@ -2377,7 +1969,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    751,
+    758,
     0,
     21,
     "P2",
@@ -2389,35 +1981,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    759,
+    766,
     0,
     21,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-109976",
-    "[Backup Encryption][FileshareRecovery] The confirmation popup is appeared although RP/backup is not changed",
-    "P3",
-    "feature",
-    "Open",
-    775,
-    1,
-    30,
-    "P3",
-    "Khiem Cao"
-  ],
-  [
-    "NJM-109880",
-    "[11.0][VMware] New chain include Full + Incremental RPs are created in case multi Objects are mapped with same an existing backup as target ",
-    "P3",
-    "regression",
-    "Reopened",
-    779,
-    0,
-    92,
-    "P2",
-    "Vo Van Hiep"
+    "Griffin Tran"
   ],
   [
     "NJM-109611",
@@ -2425,11 +1993,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    782,
+    789,
     2,
     48,
     "P3",
-    "Vo Van Hiep"
+    "Griffin Tran"
   ],
   [
     "NJM-109391",
@@ -2437,11 +2005,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    788,
+    795,
     0,
     21,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-109388",
@@ -2449,23 +2017,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    788,
+    795,
     0,
     21,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-109021",
-    "[11.0] OLR/FLR - Display the Provide a password dialog when click on Next button in case the selected RP is corrupted",
-    "P3",
-    "feature",
-    "Open",
-    794,
-    0,
-    21,
-    "P3",
-    "Khiem Cao"
+    "Griffin Tran"
   ],
   [
     "NJM-108416",
@@ -2473,11 +2029,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    801,
+    808,
     1,
     60,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-108308",
@@ -2485,7 +2041,7 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    801,
+    808,
     3,
     84,
     "P3",
@@ -2497,11 +2053,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    802,
+    809,
     0,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-106790",
@@ -2509,11 +2065,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    823,
+    830,
     0,
     21,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-106777",
@@ -2521,11 +2077,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    823,
+    830,
     0,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-106661",
@@ -2533,11 +2089,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    825,
+    832,
     0,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-106544",
@@ -2545,11 +2101,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    828,
+    835,
     0,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-106297",
@@ -2557,11 +2113,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    831,
+    838,
     0,
     21,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-105977",
@@ -2569,7 +2125,7 @@ const BUGS = [
     "P2",
     "feature",
     "Reopened",
-    837,
+    844,
     1,
     31,
     "P2",
@@ -2581,11 +2137,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    849,
+    856,
     0,
     21,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-104850",
@@ -2593,7 +2149,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    853,
+    860,
     2,
     60,
     "P3",
@@ -2605,11 +2161,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    853,
+    860,
     1,
     30,
     "P3",
-    "Vo Van Hiep"
+    "Griffin Tran"
   ],
   [
     "NJM-104173",
@@ -2617,11 +2173,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    859,
+    866,
     1,
     60,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-104052",
@@ -2629,11 +2185,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    863,
+    870,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-103910",
@@ -2641,11 +2197,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    863,
+    870,
     1,
     21,
     "P1",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-103491",
@@ -2653,35 +2209,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    866,
+    873,
     1,
     21,
     "P1",
-    "Andy Du"
-  ],
-  [
-    "NJM-103418",
-    "[10.10] External DB - Re-Config Page - Database Fields was NOT DISABLED",
-    "P3",
-    "feature",
-    "Open",
-    866,
-    2,
-    48,
-    "P3",
-    "Khiem Cao"
-  ],
-  [
-    "NJM-103102",
-    "[10.10] External DB - Login Screen EED-00 - UI Text incorrect",
-    "P2",
-    "feature",
-    "Open",
-    871,
-    2,
-    51,
-    "P3",
-    "Khiem Cao"
+    "Griffin Tran"
   ],
   [
     "NJM-103058",
@@ -2689,23 +2221,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    872,
+    879,
     1,
     48,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-102589",
-    "[External DB on installation] - \"Finish\" button is gray when switch \"PosgresSQL\" to Internal at 4.Database wizard",
-    "P3",
-    "feature",
-    "Open",
-    878,
-    3,
-    60,
-    "P3",
-    "Khiem Cao"
+    "Griffin Tran"
   ],
   [
     "NJM-102036",
@@ -2713,35 +2233,11 @@ const BUGS = [
     "P2",
     "feature",
     "Reopened",
-    881,
+    888,
     3,
     60,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-102033",
-    "[ExternalDB on Installation] Finish button works wrong",
-    "P3",
-    "feature",
-    "Open",
-    881,
-    1,
-    30,
-    "P3",
-    "Khiem Cao"
-  ],
-  [
-    "NJM-102027",
-    "[ExternalDB on Installation] Define clearly about \"Import System Configuration \"",
-    "P3",
-    "feature",
-    "Reopened",
-    881,
-    1,
-    60,
-    "P3",
-    "Khiem Cao"
+    "Griffin Tran"
   ],
   [
     "NJM-100569",
@@ -2749,11 +2245,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    907,
+    914,
     0,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-100501",
@@ -2761,7 +2257,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    907,
+    914,
     0,
     30,
     "P3",
@@ -2773,11 +2269,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    908,
+    915,
     0,
     21,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-100256",
@@ -2785,11 +2281,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    909,
+    916,
     0,
     60,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-100016",
@@ -2797,7 +2293,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    914,
+    921,
     2,
     60,
     "P3",
@@ -2809,11 +2305,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    915,
+    922,
     2,
     70,
     "P2",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-99376",
@@ -2821,11 +2317,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    921,
+    928,
     0,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-98774",
@@ -2833,11 +2329,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    935,
+    942,
     0,
     21,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-98033",
@@ -2845,11 +2341,23 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    943,
+    950,
     0,
     21,
     "P2",
-    "Andy Du"
+    "Griffin Tran"
+  ],
+  [
+    "NJM-98014",
+    "[10.12][Datepicker for RPs] Update the self-backup spec in case the recovery point is corrupted or inaccessible",
+    "P3",
+    "regression",
+    "Reopened",
+    951,
+    1,
+    100,
+    "P3",
+    "Griffin Tran"
   ],
   [
     "NJM-97951",
@@ -2857,23 +2365,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    947,
+    954,
     1,
     48,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-97845",
-    "[10.12][Granular Notification] EC2 backup job - EC2 transporter is inaccessible - Job run details should fail from action \"Waiting for transporters availability\"",
-    "P3",
-    "feature",
-    "Open",
-    947,
-    0,
-    21,
-    "P3",
-    "Khiem Cao"
+    "Griffin Tran"
   ],
   [
     "NJM-97741",
@@ -2881,11 +2377,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    948,
+    955,
     0,
     21,
     "P2",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-97519",
@@ -2893,7 +2389,7 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    951,
+    958,
     2,
     79,
     "P3",
@@ -2905,11 +2401,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    968,
+    975,
     0,
     21,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-96086",
@@ -2917,11 +2413,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    970,
+    977,
     0,
     60,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-94996",
@@ -2929,23 +2425,23 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    989,
+    996,
     0,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
-    "NJM-89264",
-    "[10.11][FSIv3] Incorrect alarm when user run backup with FSI using incorrect VM credential",
+    "NJM-90046",
+    "[10.11][FSIv3] Incorrect alarm is displayed when run backup VM with FSI enabled using insufficient permission account",
     "P3",
     "regression",
-    "Open",
-    1017,
-    3,
+    "Reopened",
+    1021,
+    2,
     89,
     "P3",
-    "Khiem Cao"
+    "Alan Tran"
   ],
   [
     "NJM-87470",
@@ -2953,11 +2449,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1027,
+    1034,
     0,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-86795",
@@ -2965,7 +2461,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1040,
+    1047,
     2,
     48,
     "P3",
@@ -2977,7 +2473,7 @@ const BUGS = [
     "P3",
     "regression",
     "Open",
-    1042,
+    1049,
     1,
     89,
     "P3",
@@ -2989,7 +2485,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    1070,
+    1077,
     0,
     92,
     "P3",
@@ -3001,11 +2497,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    1073,
+    1080,
     0,
     48,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-83771",
@@ -3013,11 +2509,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    1094,
+    1101,
     0,
     60,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-83770",
@@ -3025,11 +2521,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1094,
+    1101,
     0,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-83639",
@@ -3037,11 +2533,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1096,
+    1103,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-83638",
@@ -3049,11 +2545,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1096,
+    1103,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-83466",
@@ -3061,11 +2557,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1101,
+    1108,
     0,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-83117",
@@ -3073,11 +2569,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1108,
+    1115,
     0,
     21,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-82511",
@@ -3085,59 +2581,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1110,
+    1117,
     2,
     60,
     "P3",
     "Vu Luu"
-  ],
-  [
-    "NJM-82027",
-    "[10.10] If the transporter is disconnected suddenly when FLR to email, Error message will be blank ",
-    "P3",
-    "feature",
-    "Open",
-    1115,
-    0,
-    21,
-    "P3",
-    "Khiem Cao"
-  ],
-  [
-    "NJM-81764",
-    "[10.9] [Netgear] Incorrect error message when auto update for Windows installed transporter failed in case there's no internet",
-    "P3",
-    "regression",
-    "Open",
-    1119,
-    2,
-    92,
-    "P3",
-    "Vo Van Hiep"
-  ],
-  [
-    "NJM-80103",
-    "[10.9][UI] The icon of physical trans is incorrect when deleting a credential ",
-    "P3",
-    "regression",
-    "Open",
-    1146,
-    0,
-    84,
-    "P3",
-    "Khiem Cao"
-  ],
-  [
-    "NJM-78301",
-    "[10.9][Table refresh UI] The order of Tapes table content is changed even though there is no change from the user",
-    "P3",
-    "regression",
-    "Open",
-    1168,
-    1,
-    89,
-    "P3",
-    "Khiem Cao"
   ],
   [
     "NJM-76886",
@@ -3145,11 +2593,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1189,
+    1196,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-76517",
@@ -3157,11 +2605,11 @@ const BUGS = [
     "P3",
     "regression",
     "Open",
-    1196,
+    1203,
     0,
     84,
     "P3",
-    "Khiem Cao"
+    "Griffin Tran"
   ],
   [
     "NJM-76281",
@@ -3169,23 +2617,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1202,
+    1209,
     0,
     30,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-75797",
-    "[External DB] Failed migration for DB with \"%\" in name.",
-    "P3",
-    "regression",
-    "Open",
-    1211,
-    0,
-    84,
-    "P3",
-    "Khiem Cao"
+    "Griffin Tran"
   ],
   [
     "NJM-72545",
@@ -3193,11 +2629,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    1257,
+    1264,
     3,
     79,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-70041",
@@ -3205,23 +2641,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    1299,
+    1306,
     0,
     60,
     "P3",
     "Kieu Pham"
-  ],
-  [
-    "NJM-67133",
-    "[10.8][Return NBR usage data v1] Version of TrueNAS looks incorrect",
-    "P3",
-    "regression",
-    "Reopened",
-    1335,
-    1,
-    94,
-    "P3",
-    "Khiem Cao"
   ],
   [
     "NJM-66284",
@@ -3229,11 +2653,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    1346,
+    1353,
     0,
     60,
     "P3",
-    "Kieu Pham"
+    "Takaz Cao"
   ],
   [
     "NJM-65617",
@@ -3241,23 +2665,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1356,
+    1363,
     1,
     30,
     "P3",
     "Hill Pham"
-  ],
-  [
-    "NJM-65277",
-    "[Immutability] Mouseover text for immutable option not correctly in case  the only target destinations selected",
-    "P3",
-    "regression",
-    "Open",
-    1362,
-    1,
-    92,
-    "P3",
-    "Kieu Pham"
   ],
   [
     "NJM-65062",
@@ -3265,11 +2677,11 @@ const BUGS = [
     "P3",
     "regression",
     "Open",
-    1367,
+    1374,
     0,
     84,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-64956",
@@ -3277,35 +2689,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1369,
+    1376,
     1,
     30,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-63556",
-    "[10.8][FLv6.1-Inventory] The message is not aligned in Edit EC2 screen",
-    "P3",
-    "feature",
-    "Reopened",
-    1392,
-    0,
-    60,
-    "P3",
-    "Kieu Pham"
-  ],
-  [
-    "NJM-62041",
-    "[PA] [10.8] Displayed incorrect error message in case VM agent ID has changed",
-    "P3",
-    "feature",
-    "Open",
-    1413,
-    4,
-    60,
-    "P3",
-    "Khiem Cao"
+    "Griffin Tran"
   ],
   [
     "NJM-60964",
@@ -3313,21 +2701,9 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    1434,
+    1441,
     0,
     92,
-    "P3",
-    "Khiem Cao"
-  ],
-  [
-    "NJM-58908",
-    "[Return NBR usage data v1][NAS] The value of ReadyNAS model looks incorrect",
-    "P3",
-    "regression",
-    "Reopened",
-    1475,
-    2,
-    97,
     "P3",
     "Khiem Cao"
   ],
@@ -3337,11 +2713,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    1489,
+    1496,
     1,
     74,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-56831",
@@ -3349,11 +2725,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1495,
+    1502,
     0,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-56522",
@@ -3361,7 +2737,7 @@ const BUGS = [
     "P2",
     "feature",
     "Open",
-    1497,
+    1504,
     1,
     31,
     "P3",
@@ -3373,7 +2749,7 @@ const BUGS = [
     "P2",
     "feature",
     "Reopened",
-    1500,
+    1507,
     1,
     60,
     "P3",
@@ -3385,7 +2761,7 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    1500,
+    1507,
     0,
     48,
     "P3",
@@ -3397,7 +2773,7 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    1500,
+    1507,
     1,
     60,
     "P3",
@@ -3409,7 +2785,7 @@ const BUGS = [
     "P2",
     "feature",
     "Reopened",
-    1500,
+    1507,
     1,
     60,
     "P3",
@@ -3421,11 +2797,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1517,
+    1524,
     0,
     21,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-52240",
@@ -3433,11 +2809,23 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    1550,
+    1557,
     0,
     92,
     "P3",
     "Andrey Yurchenko"
+  ],
+  [
+    "NJM-51120",
+    "[10.3.3][PA] Cannot click Test connection and Recovery server settings information are not maintained when changing recovery point",
+    "P3",
+    "feature",
+    "Open",
+    1579,
+    3,
+    84,
+    "P3",
+    "Khiem Cao"
   ],
   [
     "NJM-50892",
@@ -3445,23 +2833,11 @@ const BUGS = [
     "P3",
     "regression",
     "Open",
-    1577,
+    1584,
     1,
     89,
     "P3",
     "Kim Nguyen"
-  ],
-  [
-    "NJM-48840",
-    "[10.6][UI][MT] The UI is not aligned in User screen",
-    "P3",
-    "regression",
-    "Reopened",
-    1601,
-    2,
-    98,
-    "P3",
-    "Kieu Pham"
   ],
   [
     "NJM-48602",
@@ -3469,7 +2845,7 @@ const BUGS = [
     "P3",
     "regression",
     "Open",
-    1602,
+    1609,
     1,
     89,
     "P3",
@@ -3481,11 +2857,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1612,
+    1619,
     3,
     74,
     "P3",
-    "Kieu Pham"
+    "Griffin Tran"
   ],
   [
     "NJM-45106",
@@ -3493,7 +2869,7 @@ const BUGS = [
     "P3",
     "regression",
     "Open",
-    1658,
+    1665,
     0,
     84,
     "P3",
@@ -3505,11 +2881,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1699,
+    1706,
     4,
     74,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-39341",
@@ -3517,11 +2893,11 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    1747,
+    1754,
     1,
     94,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-38794",
@@ -3529,35 +2905,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1759,
+    1766,
     0,
     15,
     "P3",
-    "Tin Duong"
-  ],
-  [
-    "NJM-38192",
-    "Access rights for Windows Administrator at first enter in NBR folder do not correspond to those specified in the specification",
-    "P3",
-    "regression",
-    "Reopened",
-    1767,
-    0,
-    92,
-    "P3",
-    "Tin Duong"
-  ],
-  [
-    "NJM-36990",
-    "Transporter pool checkbox is enabled even there are no pools created",
-    "P3",
-    "regression",
-    "Open",
-    1782,
-    1,
-    89,
-    "P3",
-    "Vo Van Hiep"
+    "Griffin Tran"
   ],
   [
     "NJM-30296",
@@ -3565,11 +2917,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    1886,
+    1893,
     2,
     79,
     "P3",
-    "Hill Pham"
+    "Griffin Tran"
   ],
   [
     "NJM-29974",
@@ -3577,11 +2929,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1889,
+    1896,
     0,
     30,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-29192",
@@ -3589,11 +2941,11 @@ const BUGS = [
     "P3",
     "regression",
     "Open",
-    1902,
+    1909,
     0,
     84,
     "P3",
-    "Ihor  Dubravskyi"
+    "Alan Tran"
   ],
   [
     "NJM-28373",
@@ -3601,11 +2953,23 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    1915,
+    1922,
     1,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
+  ],
+  [
+    "NJM-28031",
+    "[10.3] Uninstall post condition - Remove physical agent and discovered Hyper-v transporter",
+    "P3",
+    "regression",
+    "Reopened",
+    1927,
+    2,
+    89,
+    "P3",
+    "Griffin Tran"
   ],
   [
     "NJM-27774",
@@ -3613,11 +2977,11 @@ const BUGS = [
     "P3",
     "regression",
     "Open",
-    1924,
+    1931,
     5,
     97,
     "P3",
-    "Ihor  Dubravskyi"
+    "Alan Tran"
   ],
   [
     "NJM-27711",
@@ -3625,11 +2989,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    1928,
+    1935,
     0,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-27678",
@@ -3637,11 +3001,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1929,
+    1936,
     0,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-26138",
@@ -3649,7 +3013,7 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    1944,
+    1951,
     2,
     74,
     "P3",
@@ -3661,11 +3025,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    2025,
+    2032,
     0,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-19668",
@@ -3673,11 +3037,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    2063,
+    2070,
     0,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-18893",
@@ -3685,7 +3049,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2095,
+    2102,
     1,
     30,
     "P3",
@@ -3697,11 +3061,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    2124,
+    2131,
     0,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-17447",
@@ -3709,11 +3073,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    2155,
+    2162,
     0,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-16865",
@@ -3721,11 +3085,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2182,
+    2189,
     0,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-16646",
@@ -3733,11 +3097,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2195,
+    2202,
     0,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-16057",
@@ -3745,11 +3109,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2222,
+    2229,
     0,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-15919",
@@ -3757,11 +3121,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2228,
+    2235,
     1,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-15900",
@@ -3769,11 +3133,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2229,
+    2236,
     0,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-15791",
@@ -3781,11 +3145,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2232,
+    2239,
     0,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-15622",
@@ -3793,7 +3157,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2243,
+    2250,
     2,
     15,
     "P3",
@@ -3805,11 +3169,23 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2293,
+    2300,
     3,
     15,
     "P3",
     "Nail Abdalla"
+  ],
+  [
+    "NJM-14100",
+    "Spec defect: remove line about not supported 6.7U2",
+    "P4",
+    "feature",
+    "Reopened",
+    2349,
+    1,
+    100,
+    "P1",
+    "Griffin Tran"
   ],
   [
     "NJM-13699",
@@ -3817,11 +3193,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2379,
+    2386,
     5,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-13468",
@@ -3829,7 +3205,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    2404,
+    2411,
     0,
     15,
     "P3",
@@ -3841,7 +3217,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    2446,
+    2453,
     0,
     15,
     "P3",
@@ -3853,7 +3229,7 @@ const BUGS = [
     "P4",
     "feature",
     "Reopened",
-    2448,
+    2455,
     0,
     15,
     "P3",
@@ -3865,11 +3241,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2566,
+    2573,
     0,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-11221",
@@ -3877,7 +3253,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    2593,
+    2600,
     0,
     15,
     "P3",
@@ -3889,7 +3265,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    2594,
+    2601,
     0,
     15,
     "P3",
@@ -3901,7 +3277,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    2594,
+    2601,
     0,
     15,
     "P3",
@@ -3913,7 +3289,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    2594,
+    2601,
     0,
     15,
     "P3",
@@ -3925,11 +3301,23 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    2608,
+    2615,
     1,
     15,
     "P3",
     "Unassigned"
+  ],
+  [
+    "NJM-10923",
+    "[AD R2S] Failed job when recover AD objects to different OS",
+    "P3",
+    "regression",
+    "Open",
+    2629,
+    1,
+    100,
+    "P3",
+    "Griffin Tran"
   ],
   [
     "NJM-10691",
@@ -3937,11 +3325,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    2638,
+    2645,
     0,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-10403",
@@ -3949,7 +3337,7 @@ const BUGS = [
     "P4",
     "feature",
     "Reopened",
-    2677,
+    2684,
     0,
     15,
     "P3",
@@ -3961,7 +3349,7 @@ const BUGS = [
     "P4",
     "feature",
     "Reopened",
-    2677,
+    2684,
     0,
     15,
     "P3",
@@ -3973,7 +3361,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    2700,
+    2707,
     0,
     15,
     "P3",
@@ -3985,11 +3373,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2733,
+    2740,
     0,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-9718",
@@ -3997,7 +3385,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    2756,
+    2763,
     0,
     15,
     "P3",
@@ -4009,11 +3397,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2768,
+    2775,
     0,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-9633",
@@ -4021,11 +3409,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2769,
+    2776,
     1,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-9428",
@@ -4033,7 +3421,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    2795,
+    2802,
     0,
     15,
     "P3",
@@ -4045,11 +3433,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2798,
+    2805,
     0,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-8926",
@@ -4057,11 +3445,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2847,
+    2854,
     1,
     15,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-8915",
@@ -4069,7 +3457,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    2848,
+    2855,
     0,
     15,
     "P3",
@@ -4081,11 +3469,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    2861,
+    2868,
     1,
     15,
     "P3",
-    "Andy Du"
+    "Griffin Tran"
   ],
   [
     "NJM-8853",
@@ -4093,7 +3481,7 @@ const BUGS = [
     "P4",
     "feature",
     "Reopened",
-    2861,
+    2868,
     0,
     15,
     "P3",
@@ -4105,7 +3493,7 @@ const BUGS = [
     "P4",
     "feature",
     "Reopened",
-    2861,
+    2868,
     1,
     15,
     "P3",
@@ -4117,11 +3505,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    3035,
+    3042,
     0,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-7321",
@@ -4129,7 +3517,7 @@ const BUGS = [
     "P4",
     "feature",
     "Reopened",
-    3057,
+    3064,
     0,
     15,
     "P3",
@@ -4141,7 +3529,7 @@ const BUGS = [
     "P4",
     "feature",
     "Reopened",
-    3069,
+    3076,
     0,
     15,
     "P3",
@@ -4153,7 +3541,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    3076,
+    3083,
     0,
     15,
     "P3",
@@ -4165,11 +3553,23 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    3103,
+    3110,
     0,
     15,
     "P3",
     "Unassigned"
+  ],
+  [
+    "NJM-6570",
+    "Issues with reverse transporter connectivity mode",
+    "P3",
+    "feature",
+    "Reopened",
+    3190,
+    0,
+    15,
+    "P3",
+    "Nail Abdalla"
   ],
   [
     "NJM-6335",
@@ -4177,7 +3577,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    3245,
+    3252,
     0,
     15,
     "P3",
@@ -4189,7 +3589,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    3246,
+    3253,
     0,
     15,
     "P3",
@@ -4201,7 +3601,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    3265,
+    3272,
     0,
     15,
     "P3",
@@ -4213,7 +3613,7 @@ const BUGS = [
     "P4",
     "feature",
     "Reopened",
-    3272,
+    3279,
     0,
     15,
     "P3",
@@ -4225,7 +3625,7 @@ const BUGS = [
     "P4",
     "feature",
     "Reopened",
-    3286,
+    3293,
     0,
     15,
     "P3",
@@ -4237,7 +3637,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    3342,
+    3349,
     0,
     15,
     "P3",
@@ -4249,7 +3649,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    3349,
+    3356,
     0,
     15,
     "P3",
@@ -4261,7 +3661,7 @@ const BUGS = [
     "P4",
     "feature",
     "Reopened",
-    3385,
+    3392,
     0,
     15,
     "P3",
@@ -4273,7 +3673,7 @@ const BUGS = [
     "P4",
     "feature",
     "Reopened",
-    3421,
+    3428,
     0,
     15,
     "P3",
@@ -4285,7 +3685,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    3464,
+    3471,
     0,
     15,
     "P3",
@@ -4297,11 +3697,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    3547,
+    3554,
     0,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-4709",
@@ -4309,7 +3709,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    3617,
+    3624,
     2,
     15,
     "P3",
@@ -4321,7 +3721,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    3685,
+    3692,
     0,
     15,
     "P3",
@@ -4333,7 +3733,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    3712,
+    3719,
     0,
     15,
     "P3",
@@ -4345,7 +3745,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    3757,
+    3764,
     0,
     15,
     "P3",
@@ -4357,7 +3757,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    3786,
+    3793,
     0,
     15,
     "P3",
@@ -4369,7 +3769,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    3804,
+    3811,
     0,
     15,
     "P3",
@@ -4381,7 +3781,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    3835,
+    3842,
     0,
     15,
     "P3",
@@ -4393,7 +3793,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    3839,
+    3846,
     1,
     15,
     "P3",
@@ -4405,7 +3805,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    3854,
+    3861,
     0,
     15,
     "P3",
@@ -4417,7 +3817,7 @@ const BUGS = [
     "P4",
     "feature",
     "Reopened",
-    3890,
+    3897,
     1,
     15,
     "P3",
@@ -4429,7 +3829,7 @@ const BUGS = [
     "P4",
     "feature",
     "Reopened",
-    3932,
+    3939,
     0,
     15,
     "P3",
@@ -4441,7 +3841,7 @@ const BUGS = [
     "P4",
     "feature",
     "Reopened",
-    3933,
+    3940,
     0,
     15,
     "P3",
@@ -4453,7 +3853,7 @@ const BUGS = [
     "P4",
     "feature",
     "Reopened",
-    3933,
+    3940,
     0,
     15,
     "P3",
@@ -4465,7 +3865,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    3950,
+    3957,
     0,
     15,
     "P3",
@@ -4477,7 +3877,7 @@ const BUGS = [
     "P5",
     "feature",
     "Open",
-    3978,
+    3985,
     0,
     15,
     "P3",
@@ -4489,11 +3889,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    3980,
+    3987,
     0,
     15,
     "P3",
-    "Tin Duong"
+    "Griffin Tran"
   ],
   [
     "NJM-2885",
@@ -4501,7 +3901,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    4344,
+    4351,
     0,
     15,
     "P3",
@@ -4595,11 +3995,11 @@ function renderBug(product){
   </div>
 
     <div class="kpis">
-    ${kpi("Open bugs","367","","▼ 114 vs last week","down",true)}
-    ${kpi("Open P1","2","","▼ 1 vs last week","down",true)}
-    ${kpi("Open P2","20","","▼ 3 vs last week","down",true)}
-    ${kpi("New","33","","▲ 14 vs last week","up")}
-    ${kpi("Resolved","160","","▲ 89 vs last week","down")}
+    ${kpi("Open bugs","317","","▼ 50 vs last week","down",true)}
+    ${kpi("Open P1","0","","▼ 2 vs last week","down",true)}
+    ${kpi("Open P2","16","","▼ 4 vs last week","down",true)}
+    ${kpi("New","32","","▼ 1 vs last week","down")}
+    ${kpi("Resolved","99","","▼ 61 vs last week","up")}
   </div>
 
   <h2 class="sec">Bugs by stage over time — last 4 weeks</h2>
@@ -4647,7 +4047,7 @@ function renderBug(product){
 
 function render(){
   $("#ttl").textContent=`Bug Report — ${PRODUCT}`;
-  $("#meta").textContent=`Reporting week W30 (27 Jul–2 Aug 2026) · assignee: all · live data`;
+  $("#meta").textContent=`Reporting week W31 (3 Aug–9 Aug 2026) · assignee: all · live data`;
   $("#content").innerHTML=renderBug(PRODUCT);
   document.querySelectorAll("#bugTabs button").forEach(b=>b.onclick=()=>{bugFilter=b.dataset.f; currentPage=1; render();});
   document.querySelectorAll("#bugTable th").forEach(th=>th.onclick=()=>{const k=th.dataset.k; if(!k) return; if(sortKey===k){sortDir*=-1;}else{sortKey=k;sortDir=(k==='weight'||k==='age'||k==='linked')?-1:1;} currentPage=1; render();});
