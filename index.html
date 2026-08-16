@@ -92,10 +92,10 @@
    DBs/Services/Apps · Sec/Mon · STORaaS/BKaaS · Internal systems · Core (repo & storage) · Core (general) · FLB/Share */
 const PRODUCT = "DBs/Services/Apps / IT Disaster Recovery";
 
-const WEEKS = ["?", "?", "?", "W32"];
+const WEEKS = ["?", "?", "W32", "W33"];
 const COLORS = {Open:"#d6443c",Resolved:"#e0a106",Closed:"#1f9d57"};
-const bugStageReleased = {"Open": [0, 0, 0, 0], "Resolved": [9, 9, 9, 9], "Closed": [294, 294, 294, 294]};
-const bugStageFeature  = {"Open": [74, 74, 74, 74], "Resolved": [16, 16, 16, 16], "Closed": [89, 89, 89, 89]};
+const bugStageReleased = {"Open": [0, 0, 0, 1], "Resolved": [9, 9, 9, 8], "Closed": [294, 294, 294, 297]};
+const bugStageFeature  = {"Open": [74, 74, 74, 55], "Resolved": [16, 16, 16, 16], "Closed": [89, 89, 89, 107]};
 
 /* Priority: P1 = blocks users / some test cases · P2 = critical · P3 = mostly UI */
 const PRIO = { P1:{label:"Blocks users",rank:1}, P2:{label:"Critical",rank:2}, P3:{label:"Mostly UI",rank:3}, P4:{label:"Minor",rank:4}, P5:{label:"Trivial",rank:5} };
@@ -104,100 +104,40 @@ const PRIO = { P1:{label:"Blocks users",rank:1}, P2:{label:"Critical",rank:2}, P
    [key, summary, priority, type(regression|feature), status, ageDays, linkedSupportTickets, weight, severity, assignee] */
 const BUGS = [
   [
-    "NJM-187942",
-    "[11.3][OLR-Exchange SE] export.ps1 OOMs during DEBUG-level logging when transporter logging=DEBUG, aborting OLR export",
-    "P2",
+    "NJM-188574",
+    "[MSSQL][Add inventory] Incorrect error message is displayed when adding a Windows Server 2012 server hosting SQL Server 2016 to Inventory",
+    "P3",
     "feature",
     "Open",
     3,
-    1,
+    0,
     100,
-    "P2",
-    "Ha Tran"
-  ],
-  [
-    "NJM-187024",
-    "[MSSQL][Recovery][Step 3.Destination] Allows proceeding to next step when Data file path field is empty during recovery setup",
-    "P3",
-    "feature",
-    "Open",
-    11,
-    1,
-    30,
     "P3",
     "Ha Tran"
   ],
   [
-    "NJM-186977",
-    "[MSSQL] Transaction Mark table displays only \"sa\" as the user even when transaction marks are created by different SQL users",
-    "P3",
-    "feature",
-    "Open",
-    11,
-    2,
-    46,
-    "P3",
-    "Ha Tran"
-  ],
-  [
-    "NJM-186589",
-    "[11.3][OLR-Exchange SE] OLR Exchange job completes successfully but no recovered files are exported when OLR from VMware to Proxmox server",
+    "NJM-188273",
+    "[MSSQL][Recovery] UI is inconsistent with the existing UI",
     "P2",
     "feature",
     "Reopened",
-    13,
-    2,
-    73,
+    6,
+    0,
+    100,
     "P2",
-    "Ha Tran"
+    "Andy Du"
   ],
   [
-    "NJM-185035",
-    "[MSSQL][Recovery] Not have default Log file path tooltip when hover on field",
-    "P3",
-    "feature",
-    "Open",
-    27,
+    "NJM-184306",
+    "Cannot recovery SQL from BO backup proxmox",
+    "P1",
+    "regression",
+    "Reopened",
+    41,
     1,
-    24,
-    "P3",
-    "Ha Tran"
-  ],
-  [
-    "NJM-185032",
-    "[MSSQL][Recovery] Not have default Data file path tooltip when hover on field",
-    "P3",
-    "feature",
-    "Open",
-    27,
-    1,
-    24,
-    "P3",
-    "Ha Tran"
-  ],
-  [
-    "NJM-184845",
-    "[MSSQL][Recovery][Transaction mark] Transaction mark Date and time format does not match the specification",
-    "P3",
-    "feature",
-    "Open",
-    30,
-    2,
-    46,
-    "P3",
-    "Ha Tran"
-  ],
-  [
-    "NJM-184842",
-    "[MSSQL][Recovery][Transaction mark] No validation when transaction is left empty in Recover to a transaction mark recovery",
-    "P3",
-    "feature",
-    "Open",
-    30,
-    1,
-    24,
-    "P3",
-    "Ha Tran"
+    200,
+    "P1",
+    "Trai Nguyen"
   ],
   [
     "NJM-183375",
@@ -205,23 +145,11 @@ const BUGS = [
     "P2",
     "feature",
     "Reopened",
-    41,
+    48,
     3,
     60,
     "P3",
     "Chuong Nguyen"
-  ],
-  [
-    "NJM-182375",
-    "[Site Recovery] [Job Priority] Actions panel shows %progress status instead of \"Waiting\" for queued SR plan actions",
-    "P3",
-    "feature",
-    "Reopened",
-    47,
-    1,
-    87,
-    "P4",
-    "Andy Du"
   ],
   [
     "NJM-182001",
@@ -229,7 +157,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    48,
+    55,
     2,
     46,
     "P3",
@@ -241,7 +169,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    48,
+    55,
     2,
     46,
     "P3",
@@ -253,7 +181,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    51,
+    58,
     1,
     89,
     "P3",
@@ -265,23 +193,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    52,
+    59,
     1,
     73,
     "P4",
-    "Andy Du"
-  ],
-  [
-    "NJM-180995",
-    "[MSSQL][Recovery wizard][Step 4. Option][UI] Extra colon displayed in SQL recovery state labels",
-    "P4",
-    "feature",
-    "Open",
-    53,
-    0,
-    21,
-    "P4",
-    "Ha Tran"
+    "Chuong Nguyen"
   ],
   [
     "NJM-180992",
@@ -289,23 +205,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    53,
+    60,
     0,
     46,
     "P3",
-    "Andy Du"
-  ],
-  [
-    "NJM-180985",
-    "[MSSQL][Recovery wizard][Step1][UI] Still display log recovery point at step 1",
-    "P3",
-    "feature",
-    "Reopened",
-    53,
-    1,
-    46,
-    "P3",
-    "Andy Du"
+    "Takaz Cao"
   ],
   [
     "NJM-179782",
@@ -313,11 +217,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    54,
+    61,
     2,
     87,
     "P3",
-    "Alan Tran"
+    "Chuong Nguyen"
   ],
   [
     "NJM-179781",
@@ -325,7 +229,7 @@ const BUGS = [
     "P4",
     "feature",
     "Open",
-    54,
+    61,
     1,
     41,
     "P4",
@@ -337,11 +241,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    54,
+    61,
     1,
     30,
     "P3",
-    "Andy Du"
+    "Chuong Nguyen"
   ],
   [
     "NJM-179526",
@@ -349,23 +253,11 @@ const BUGS = [
     "P4",
     "feature",
     "Reopened",
-    55,
+    62,
     0,
     60,
     "P4",
     "Andy Du"
-  ],
-  [
-    "NJM-179511",
-    "[MSSQL][Recovery][Step 2 - Recovery Method] Incorrect tooltip message displayed for transaction mark recovery option",
-    "P3",
-    "feature",
-    "Open",
-    55,
-    1,
-    30,
-    "P3",
-    "Kieu Pham"
   ],
   [
     "NJM-178880",
@@ -373,11 +265,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    58,
+    65,
     3,
     95,
     "P3",
-    "Alan Tran"
+    "Chuong Nguyen"
   ],
   [
     "NJM-178357",
@@ -385,11 +277,11 @@ const BUGS = [
     "P2",
     "feature",
     "Reopened",
-    60,
+    67,
     2,
     100,
     "P3",
-    "Chuong Nguyen"
+    "Cuong Ngo"
   ],
   [
     "NJM-178040",
@@ -397,7 +289,7 @@ const BUGS = [
     "P1",
     "feature",
     "Open",
-    61,
+    68,
     3,
     60,
     "P2",
@@ -409,35 +301,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    61,
+    68,
     0,
     60,
     "P4",
     "Chuong Nguyen"
-  ],
-  [
-    "NJM-176634",
-    "[MSSQL][Backup] Backup Job Stuck at 6% and Fails with \"Cannot Be Started\" Error When Two Backup Jobs Are Scheduled Simultaneously for the Same Database",
-    "P3",
-    "feature",
-    "Open",
-    67,
-    1,
-    21,
-    "P3",
-    "Ha Tran"
-  ],
-  [
-    "NJM-175867",
-    "[MSSQL][Backup] Forever-incremental repositories remain enabled when selecting a repository for backup jobs",
-    "P3",
-    "feature",
-    "Reopened",
-    72,
-    1,
-    30,
-    "P3",
-    "Ha Tran"
   ],
   [
     "NJM-166884",
@@ -445,11 +313,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    137,
-    14,
+    144,
+    15,
     60,
     "P1",
-    "Andy Du"
+    "Diet Nguyen"
   ],
   [
     "NJM-166488",
@@ -457,35 +325,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    139,
+    146,
     1,
     65,
     "P3",
     "Ha Tran"
-  ],
-  [
-    "NJM-165762",
-    "[11.2.1][OLR-AD] Cannot view OLR AD object from different windows VM",
-    "P2",
-    "feature",
-    "Reopened",
-    144,
-    1,
-    73,
-    "P2",
-    "Ha Tran"
-  ],
-  [
-    "NJM-165125",
-    "[AU][OLR][11.2] Inconsistent dropdown value for Overwrite behavior",
-    "P3",
-    "feature",
-    "Reopened",
-    151,
-    13,
-    81,
-    "P3",
-    "Andy Du"
   ],
   [
     "NJM-157561",
@@ -493,23 +337,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    235,
+    242,
     1,
     65,
     "P3",
     "Ha Tran"
-  ],
-  [
-    "NJM-156133",
-    "[11.2 Regression][Site Recovery] User can still save site recovery job failover Hyper-V VM for policy container contained corrupted VM",
-    "P3",
-    "feature",
-    "Open",
-    243,
-    2,
-    81,
-    "P3",
-    "Alan Tran"
   ],
   [
     "NJM-147062",
@@ -517,7 +349,7 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    321,
+    328,
     0,
     76,
     "P3",
@@ -529,23 +361,11 @@ const BUGS = [
     "P3",
     "feature",
     "In Progress",
-    346,
+    353,
     1,
     100,
     "P3",
-    "Diet Nguyen"
-  ],
-  [
-    "NJM-131009",
-    "[RTRv2] Activities: In case IO filter package is absent in iofilter-vaio8/7 folder - \"null\" is displayed in the details popup",
-    "P3",
-    "feature",
-    "Open",
-    520,
-    5,
-    15,
-    "P3",
-    "Diet Nguyen"
+    "Andy Du"
   ],
   [
     "NJM-126081",
@@ -553,7 +373,7 @@ const BUGS = [
     "P2",
     "feature",
     "Reopened",
-    608,
+    615,
     0,
     100,
     "P1",
@@ -565,7 +385,7 @@ const BUGS = [
     "P2",
     "feature",
     "Reopened",
-    614,
+    621,
     6,
     95,
     "P2",
@@ -577,7 +397,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    648,
+    655,
     2,
     100,
     "P3",
@@ -589,7 +409,7 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    698,
+    705,
     1,
     92,
     "P3",
@@ -601,23 +421,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    817,
+    824,
     1,
     65,
     "P3",
     "Andy Du"
-  ],
-  [
-    "NJM-95613",
-    "[OLR Exchange] No validation error show when type in ASCII characters from 0 to 31 to local path field",
-    "P3",
-    "feature",
-    "Reopened",
-    991,
-    1,
-    65,
-    "P3",
-    "Diet Nguyen"
   ],
   [
     "NJM-95593",
@@ -625,11 +433,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    991,
+    998,
     2,
     76,
     "P3",
-    "Andy Du"
+    "Toan Phan"
   ],
   [
     "NJM-95586",
@@ -637,7 +445,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    991,
+    998,
     3,
     46,
     "P3",
@@ -649,7 +457,7 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    1069,
+    1076,
     1,
     65,
     "P3",
@@ -661,7 +469,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1070,
+    1077,
     1,
     30,
     "P3",
@@ -673,7 +481,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1412,
+    1419,
     0,
     100,
     "P3",
@@ -685,7 +493,7 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    1493,
+    1500,
     1,
     65,
     "P3",
@@ -697,7 +505,7 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    1627,
+    1634,
     0,
     30,
     "P3",
@@ -709,7 +517,7 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    1658,
+    1665,
     0,
     92,
     "P3",
@@ -721,11 +529,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    1670,
-    2,
+    1677,
+    3,
     76,
     "P3",
-    "Andy Du"
+    "Andrey Yurchenko"
   ],
   [
     "NJM-37138",
@@ -733,7 +541,7 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    1794,
+    1801,
     1,
     65,
     "P3",
@@ -745,7 +553,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1894,
+    1901,
     0,
     15,
     "P3",
@@ -757,7 +565,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    1951,
+    1958,
     0,
     21,
     "P3",
@@ -769,7 +577,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2043,
+    2050,
     0,
     46,
     "P3",
@@ -781,11 +589,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2085,
+    2092,
     1,
     15,
     "P3",
-    "Khiem Cao"
+    "Ha Tran"
   ],
   [
     "NJM-16869",
@@ -793,7 +601,7 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    2196,
+    2203,
     0,
     89,
     "P3",
@@ -805,35 +613,11 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2230,
+    2237,
     0,
     15,
     "P3",
     "Unassigned"
-  ],
-  [
-    "NJM-15893",
-    "[10.0][OLR - Exchange objects] Compare the performance of database loading in step 3 when backing up to Wasabi repo and local repo",
-    "P3",
-    "feature",
-    "Open",
-    2243,
-    0,
-    15,
-    "P3",
-    "Diet Nguyen"
-  ],
-  [
-    "NJM-15230",
-    "[9.4][Active Directory][1000 AD users] Selected for recovery number not displayed as expected when user checked on the \"select all\" check box",
-    "P3",
-    "feature",
-    "Reopened",
-    2280,
-    3,
-    81,
-    "P3",
-    "Andy Du"
   ],
   [
     "NJM-14834",
@@ -841,7 +625,7 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    2309,
+    2316,
     0,
     46,
     "P3",
@@ -853,7 +637,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2316,
+    2323,
     1,
     15,
     "P3",
@@ -865,7 +649,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2322,
+    2329,
     1,
     15,
     "P3",
@@ -877,7 +661,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2349,
+    2356,
     2,
     15,
     "P3",
@@ -889,7 +673,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2602,
+    2609,
     0,
     15,
     "P3",
@@ -901,7 +685,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2613,
+    2620,
     0,
     15,
     "P3",
@@ -913,7 +697,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2692,
+    2699,
     0,
     15,
     "P3",
@@ -925,7 +709,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    2928,
+    2935,
     0,
     15,
     "P3",
@@ -937,7 +721,7 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    2945,
+    2952,
     0,
     15,
     "P3",
@@ -949,7 +733,7 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    3118,
+    3125,
     0,
     46,
     "P3",
@@ -961,11 +745,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    3128,
+    3135,
     0,
     46,
     "P3",
-    "Andy Du"
+    "Chuong Nguyen"
   ],
   [
     "NJM-6945",
@@ -973,11 +757,11 @@ const BUGS = [
     "P3",
     "feature",
     "Reopened",
-    3128,
+    3135,
     0,
     46,
     "P3",
-    "Diet Nguyen"
+    "Andy Du"
   ],
   [
     "NJM-6240",
@@ -985,7 +769,7 @@ const BUGS = [
     "P3",
     "feature",
     "Open",
-    3281,
+    3288,
     0,
     15,
     "P3",
@@ -1079,11 +863,11 @@ function renderBug(product){
   </div>
 
     <div class="kpis">
-    ${kpi("Open bugs","74","","","flat",true)}
-    ${kpi("Open P1","1","","","flat",true)}
-    ${kpi("Open P2","7","","","flat",true)}
-    ${kpi("New","1","","","flat")}
-    ${kpi("Resolved","18","","","flat")}
+    ${kpi("Open bugs","56","","▼ 18 vs last week","down",true)}
+    ${kpi("Open P1","2","","▲ 1 vs last week","up",true)}
+    ${kpi("Open P2","5","","▼ 2 vs last week","down",true)}
+    ${kpi("New","3","","▲ 2 vs last week","up")}
+    ${kpi("Resolved","26","","▲ 8 vs last week","down")}
   </div>
 
   <h2 class="sec">Bugs by stage over time — last 4 weeks</h2>
@@ -1131,7 +915,7 @@ function renderBug(product){
 
 function render(){
   $("#ttl").textContent=`Bug Report — ${PRODUCT}`;
-  $("#meta").textContent=`Reporting week W32 (10 Aug–16 Aug 2026) · assignee: all · live data`;
+  $("#meta").textContent=`Reporting week W33 (17 Aug–23 Aug 2026) · assignee: all · live data`;
   $("#content").innerHTML=renderBug(PRODUCT);
   document.querySelectorAll("#bugTabs button").forEach(b=>b.onclick=()=>{bugFilter=b.dataset.f; currentPage=1; render();});
   document.querySelectorAll("#bugTable th").forEach(th=>th.onclick=()=>{const k=th.dataset.k; if(!k) return; if(sortKey===k){sortDir*=-1;}else{sortKey=k;sortDir=(k==='weight'||k==='age'||k==='linked')?-1:1;} currentPage=1; render();});
